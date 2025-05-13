@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bikewatching</title>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <!-- Mapbox GL JS CSS -->
+    <link
+    href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css"
+    rel="stylesheet"
+    />
+    <script src="map.js" type="module"></script>
+
+    <link rel="stylesheet" href="map.css" />
+    
   </head>
   <body>
-    <h1>🚴🏼‍♀️ Bikewatching</h1>
-    <p>An interactive map of Boston's bike traffic using Mapbox and D3.js</p>
+    <header>
+        <h1>🚴🏼‍♀️ Bikewatching</h1>
+      
+        <div class="filter-controls">
+          <label>
+            Filter by time:
+            <input
+              type="range"
+              id="timeSlider"
+              min="-1"
+              max="1440"
+              step="5"
+              value="-1"
+            />
+          </label>
+          <div class="time-display">
+            <em id="anyTime">(any time)</em>
+            <time id="timeDisplay">11:59 PM</time>
+          </div>
+        </div>
+      </header>
+      
+      
+      <p>An interactive map of Boston's bike traffic using Mapbox and D3.js</p>
+      
+      <div id="map">
+        <svg></svg>
+      </div>
+
+      <div class="legend">
+        <div style="--departure-ratio: 1; text-align: left;">More departures</div>
+        <div style="--departure-ratio: 0.5; text-align: center;">Balanced</div>
+        <div style="--departure-ratio: 0; text-align: right;">More arrivals</div>
+      </div>
+      
   </body>
+  
 </html>
